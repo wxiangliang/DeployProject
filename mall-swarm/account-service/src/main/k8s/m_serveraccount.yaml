@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: monitor-account
+  namespace: prometheus
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: monitor-role
+rules:
+  - apiGroups: [ "" ]
+    resources:
+      - nodes
+      - nodes/metrics
+      - services
+      - endpoints
+      - pods
+    verbs: [ "get", "list", "watch" ]
+  - apiGroups: [ "" ]
+    resources:
+      - configmaps
+    verbs: [ "get" ]
+  - apiGroups:
+      - networking.k8s.io
+    resources:
+      - ingresses
+    verbs: [ "get", "list", "watch" ]
+  - nonResourceURLs: [ "/metrics" ]
+    verbs: [ "get" ]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: monitor_role-bind
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: monitor-role
+subjects:
+  - kind: ServiceAccount
+    name: monitor-account
+    namespace: prometheus
+
+---
+
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: service-monitor
+  namespace: prometheus
+spec:
+  serviceAccountName: monitor-account
+  serviceMonitorSelector:
+    matchLabels:
+      app: account
+  #  serviceMonitorNamespaceSelector:
+  #    matchLabels:
+  #      name: default
+  resources:
+    requests:
+      memory: 400Mi
+  enableAdminAPI: false

@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos-headless.default.svc.cluster.local:8848
+        namespace: ce288698-3050-4c8c-aeb4-a48fa0e2eaf4
+        enabled: true
+        instance-enabled: true
+      config:
+        namespace: ce288698-3050-4c8c-aeb4-a48fa0e2eaf4
+        server-addr: nacos-headless.default.svc.cluster.local:8848
+        group: DEFAULT_GROUP
+      username: nacos
+      password: nacos
+  config:
+    import:
+      - optional:nacos:account.yml?refreshEnabled=true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://mall-external-service:3306/mall_user?allowMultiQueries=true&tinyInt1isBit=false&zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: Abc@1234560
+    driver-class-name: com.mysql.cj.jdbc.Driver

@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mall-endpoint-service
+spec:
+  #  clusterIP: None
+  #  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
+
+---
+apiVersion: discovery.k8s.io/v1
+kind: EndpointSlice
+metadata:
+  name: mall-endpoint-service-slice # 按惯例将服务的名称用作 EndpointSlice 名称的前缀
+  labels:
+    # 你应设置 "kubernetes.io/service-name" 标签。
+    # 设置其值以匹配服务的名称
+    kubernetes.io/service-name: mall-endpoint-service
+addressType: IPv4
+ports:
+  - name: '' # 留空，因为 port 3306 未被 IANA 分配为已注册端口
+    protocol: TCP
+    port: 3306
+endpoints:
+  - addresses:
+      - "172.25.109.184" # 此列表中的 IP 地址可以按任何顺序显示

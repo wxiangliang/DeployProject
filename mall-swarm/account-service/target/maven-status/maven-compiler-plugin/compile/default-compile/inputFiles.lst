@@ -1,0 +1,9 @@
+D:\deployProject\mall-swarm\account-service\src\main\java\com\xl\account\generatorMybatis\GeneratorMain.java
+D:\deployProject\mall-swarm\account-service\src\main\java\com\xl\account\mapper\UserMapper.java
+D:\deployProject\mall-swarm\account-service\src\main\java\com\xl\account\service\IUserService.java
+D:\deployProject\mall-swarm\account-service\src\main\java\com\xl\account\struct\UserStruct.java
+D:\deployProject\mall-swarm\account-service\src\main\java\com\xl\account\entity\User.java
+D:\deployProject\mall-swarm\account-service\src\main\java\com\xl\account\controller\UserController.java
+D:\deployProject\mall-swarm\account-service\src\main\java\com\xl\AccountApplication.java
+D:\deployProject\mall-swarm\account-service\src\main\java\com\xl\account\service\impl\UserServiceImpl.java
+D:\deployProject\mall-swarm\account-service\src\main\java\com\xl\account\config\AccountConfig.java

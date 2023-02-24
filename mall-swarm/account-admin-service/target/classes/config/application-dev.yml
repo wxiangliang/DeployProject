@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    kubernetes:
+      enabled: false
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+        namespace: c7998d45-774f-4de0-9aa5-0c7fb9e2a1e5
+        enabled: true
+        instance-enabled: true
+      username: nacos
+      password: nacos

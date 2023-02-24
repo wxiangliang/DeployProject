@@ -1,0 +1,9 @@
+com\xl\account\service\impl\UserServiceImpl.class
+com\xl\AccountApplication.class
+com\xl\account\struct\UserStruct.class
+com\xl\account\entity\User.class
+com\xl\account\struct\UserStructImpl.class
+com\xl\account\config\AccountConfig.class
+com\xl\account\service\IUserService.class
+com\xl\account\mapper\UserMapper.class
+com\xl\account\controller\UserController.class

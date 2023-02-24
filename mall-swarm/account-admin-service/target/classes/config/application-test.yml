@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    kubernetes:
+      loadbalancer:
+        mode: POD
+      discovery:
+        all-namespaces: true
+    nacos:
+      discovery:
+        server-addr: nacos-headless.default.svc.cluster.local:8848
+        namespace: ce288698-3050-4c8c-aeb4-a48fa0e2eaf4
+        enabled: true
+        instance-enabled: true
+      username: nacos
+      password: nacos

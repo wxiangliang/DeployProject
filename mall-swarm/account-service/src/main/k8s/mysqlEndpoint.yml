@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sql-endpoint-service
+spec:
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: sql-endpoint-service
+subsets:
+  - addresses:
+      - ip: 172.25.109.184
+    ports:
+      - port: 3306

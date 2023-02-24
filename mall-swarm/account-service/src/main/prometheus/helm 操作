@@ -1,0 +1,2 @@
+下载chart包
+helm pull prometheus-community/kube-prometheus-stack
